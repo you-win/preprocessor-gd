@@ -193,3 +193,10 @@ func insert_directives(obj: Object) -> void:
 	obj.set_script(null)
 	obj_script.reload()
 	obj.set_script(obj_script) # TODO might be unnecessary?
+
+func add_define(define_name: String, value: Array = []) -> void:
+	"""
+	Add a define at runtime. If no value is passed, then the define will
+	just be an identifier.
+	"""
+	global_state.defines[define_name] = PoolStringArray(value)
